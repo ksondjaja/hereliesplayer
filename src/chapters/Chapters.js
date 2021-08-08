@@ -4,6 +4,7 @@ import Title from './Title';
 import Profile from './Profile';
 import ChapterOne from './ChapterOne';
 import ChapterTwo from './ChapterTwo';
+import ChapterChildren from './ChapterChildren';
 import ChapterThree from './ChapterThree';
 import Death from './Death';
 
@@ -11,49 +12,31 @@ export default function Chapters(props){
     switch(props.state.chapter){
         case "title":
             return(
-                <Title
-                state = {props.state}
-                flipChapter = {props.flipChapter}
-                />
+                <Title {...props}/>
             );
         case "profile":
             return(
-                <Profile
-                state = {props.state}
-                handleChange = {props.handleChange}
-                handlePlayerPassions = {props.handlePlayerPassions}
-                handleInterestPronouns = {props.handleInterestPronouns}
-                startGame = {props.startGame}
-                hidePopup = {props.hidePopup}
-                />
+                <Profile {...props}/>
             );
         case "chapter1":
             return(
-                <ChapterOne
-                state = {props.state}
-                flipChapter = {props.flipChapter}
-                />
+                <ChapterOne {...props}/>
             );
         case "chapter2":
             return(
-                <ChapterTwo
-                state = {props.state}
-                flipChapter = {props.flipChapter}
-                />
+                <ChapterTwo {...props}/>
             );
+        case "chapter2.5":
+            return(
+                <ChapterChildren {...props}/>
+            )
         case "chapter3":
             return(
-                <ChapterThree
-                state = {props.state}
-                flipChapter = {props.flipChapter}
-                />
+                <ChapterThree {...props}/>
             );
         case "death":
             return(
-                <Death
-                state = {props.state}
-                flipChapter = {props.flipChapter}
-                />
+                <Death {...props}/>
             );
     }
 }

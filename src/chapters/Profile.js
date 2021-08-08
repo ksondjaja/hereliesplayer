@@ -108,11 +108,11 @@ export default function Profile(props){
             <p>
                 Which of these best describe your personality?<br/>
                 <input
-                name="player-personality" id="player-personality-social" value="social" type="radio"
-                checked={state.playerPersonality === 'social'}
+                name="player-personality" id="player-personality-sociable" value="sociable" type="radio"
+                checked={state.playerPersonality === 'sociable'}
                 onChange={handleChange('playerPersonality')}
                 />
-                <label for="player-personality-social">Social</label>
+                <label for="player-personality-sociable">Sociable</label>
 
                 <input
                 name="player-personality" id="player-personality-reserved" value="reserved" type="radio"
@@ -144,7 +144,7 @@ export default function Profile(props){
 
                 <input
                 name="player-personality" id="player-personality-agreeable" value="agreeable" type="radio"
-                checked={state.playerPersonality == 'agreeable'}
+                checked={state.playerPersonality === 'agreeable'}
                 onChange={handleChange('playerPersonality')}
                 />
                 <label for="player-personality-agreeable">Agreeable</label>
@@ -202,9 +202,9 @@ export default function Profile(props){
                 <label for="player-passions-film">Film</label>
 
                 <input
-                name="player-passions" id="player-passions-justice" value="justice" type="checkbox"
-                checked={state.playerPassions.includes('justice') === true}
-                onChange={handlePlayerPassions('justice')}
+                name="player-passions" id="player-passions-justice" value="social justice" type="checkbox"
+                checked={state.playerPassions.includes('social justice') === true}
+                onChange={handlePlayerPassions('social justice')}
                 />
                 <label for="player-passions-justice">Social Justice</label>
 
@@ -227,14 +227,14 @@ export default function Profile(props){
                 checked={state.playerPassions.includes('sports') === true}
                 onChange={handlePlayerPassions('sports')}
                 />
-                <label for="player-passions-sports">Sports and Fitness</label>
+                <label for="player-passions-sports">Sports</label>
 
                 <input
-                name="player-passions" id="player-passions-science" value="science" type="checkbox"
-                checked={state.playerPassions.includes('science') === true}
-                onChange={handlePlayerPassions('science')}
+                name="player-passions" id="player-passions-technology" value="technology" type="checkbox"
+                checked={state.playerPassions.includes('technology') === true}
+                onChange={handlePlayerPassions('technology')}
                 />
-                <label for="player-passions-science">Science and Technology</label>
+                <label for="player-passions-technology">Technology</label>
 
                 <input
                 name="player-passions" id="player-passions-spirituality" value="spirituality" type="checkbox"

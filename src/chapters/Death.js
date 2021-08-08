@@ -1,3 +1,9 @@
 import React from 'react';
 
-export default function Death(props){};
+export default function Death(props){
+    return(
+        <>
+            Death
+        </>
+    );
+};

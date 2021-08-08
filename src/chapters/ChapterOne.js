@@ -1,25 +1,86 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import Characters from '../characters/Characters';
 
 export default function ChapterOne(props){
 
-    const { flipChapter } = props;
     const [pageNum, setPage] = useState(0);
-    const noNextButton = [5,6,9,12];
-    const lastPage = [9,12]
+    const noNextButton = [5,7,10,13];
+    const lastPage = [10,13]
+    const interest = props.state.gameInterests[0];
+
+    console.log(interest);
+
+    const setPronoun = (type) => {
+        if(interest === "they"){
+            if(type===1){
+                return "they";
+            }else if(type===2){
+                return "them";
+            }else{
+                return "their";
+            }
+        }else if(interest === "she"){
+            if(type===1){
+                return "she";
+            }else{
+                return "her";
+            }
+        }else{
+            if(type===1){
+                return "he";
+            }else{
+                return "him";
+            }
+        }
+    }
+
+    const setPlural = (type) =>{
+        if(type==='they'){
+            return '';
+        }else{
+            return 's';
+        }
+    }
+
+    const setPluralHave = (type) =>{
+        if(type==='they'){
+            return 'have';
+        }else{
+            return 'has';
+        }
+    }
+
+    const capitalize = (word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
+    const optionOne = () => {
+        let attraction;
+
+        if(props.state.interestPronouns.includes("none") || props.state.gameCharacters[0] === "notAttracted"){
+            attraction = "notAttracted";
+        }else{
+            attraction = "attracted";
+        }
+
+        props.flipCharacter(props.state.gameCharacters[0]);
+        props.enterRelationship(attraction);
+        setPage(pageNum+1);
+    }
+
+    const optionTwo = () => {
+        setPage(pageNum+3);
+    }
+
+    const optionThree = () => {
+        setPage(pageNum+6);
+    }
 
     const images = [
         <>(image)</>, <>(image)</>, <>(image)</>, <>(image)</>, <>(image)</>
     ];
-
-    const optionTwo = () => {
-        setPage(pageNum+2);
-    }
-
-    const optionThree = () => {
-        setPage(pageNum+5);
-    }
 
     const pages = [
         //p0
@@ -32,11 +93,11 @@ export default function ChapterOne(props){
         </>,
         //p2
         <>
-            One day, you meet someone really cool online, and she/he/they seem(s) to really like you.
+            One day, you meet someone really cool online, and {setPronoun(1)} seem{setPlural(setPronoun(1))} to really like you.
         </>,
         //p3
         <>
-            You meet with him/her/them in-person several times. You have a lot of fun and really get along with them.
+            You meet with {setPronoun(2)} in-person several times. You have a lot of fun and really get along with {setPronoun(2)}.
         </>,
         //p4
         <>
@@ -45,44 +106,61 @@ export default function ChapterOne(props){
         //p5: options
         <>
             <ul class="options">
-                <li>
-                    (You’re not actually attracted to her/him/them. But you don’t want to hurt their feelings and you don’t want to be alone.)
-                    You ask her/him/them if she/he/they want to date seriously.
+                <li onClick={optionOne}>
+                    {props.state.interestPronouns.includes("none") || props.state.gameCharacters[0] === "notAttracted" ?
+                    <>
+                        You’re not actually attracted to {setPronoun(2)}. But you don’t want to hurt their feelings and don’t want to be alone.&nbsp;
+                    </>
+                    :
+                    <></>
+                    }
+                    You ask {setPronoun(2)} if {setPronoun(1)} want to date seriously.
                 </li>
                 <li onClick={optionTwo}>
-                    This is fun, but you know that it won’t last. You tell her/him/them that you just want to keep it casual.
+                    This is fun, but you know that it won’t last. You tell {setPronoun(2)} that you just want to keep it casual.
                 </li>
                 <li onClick={optionThree}>
-                    They seem like a nice person, but you’re not really into them. You tell her/him/them that you don’t see her/him/them that way.
+                    {capitalize(setPronoun(1))} seem like a nice person, but you’re not really into {setPronoun(2)}. You tell {setPronoun(2)} that you don’t see {setPronoun(2)} that way.
                 </li>
             </ul>
         </>,
         // p6: option 1
         <>
+            You are now dating seriously. You spend a lot of time together and get to know each other's friends and family.
         </>,
-        //p7: option 2
+        //p7
         <>
-        You keep seeing her/him/them, but after several months, you fight more often and eventually grow apart.
+            <Characters
+            {...props}
+            setPronoun = {setPronoun}
+            setPlural = {setPlural}
+            setPluralHave = {setPluralHave}
+            capitalize = {capitalize}
+            />
         </>,
-        //p8
+        //p8: option 2
         <>
-        He/she/they decide to break up with you.
+        You keep seeing {setPronoun(2)}, but after several months, you fight more often and eventually grow apart.
         </>,
         //p9
         <>
-        Three years later, you hear that he/she/they got married and seems really happy.
+        {capitalize(setPronoun(1))} decide{setPlural(setPronoun(1))} to break up with you.
         </>,
-        //p10: option3
+        //p10
         <>
-        He/she/they seem really sad to let you go, but you feel that you made the right decision by being honest and not wasting his/her/their time.
+        Three years later, you hear that {setPronoun(1)} got married and look{setPlural(setPronoun(1))} really happy.
         </>,
-        //p11
+        //p11: option3
         <>
-        He/she/they find it too painful to be just friends, and you never see him/her/them again.
+        {capitalize(setPronoun(1))} seem really sad to let you go, but you feel that you made the right decision by being honest and not wasting {(setPronoun(3))} time.
         </>,
         //p12
         <>
-        Three years later, you stumble upon their profile on social media. It seems that he/she/they got married and seems really happy.
+        {capitalize(setPronoun(1))} find it too painful to be just friends, and you never see {setPronoun(2)} again.
+        </>,
+        //p13
+        <>
+        Three years later, you stumble upon {setPronoun(3)} profile on social media. It seems that {setPronoun(1)} got married and look{setPlural(setPronoun(1))} really happy.
         </>,
     ];
 
@@ -102,7 +180,7 @@ export default function ChapterOne(props){
                     <></>
                     }
                     {lastPage.includes(pageNum)?
-                        <button onClick={() => {flipChapter("chapter2")}} class="button-next">
+                        <button onClick={() => {props.flipChapter("chapter2")}} class="button-next">
                             <FontAwesomeIcon icon={ faAngleRight } size="2x"/>
                         </button>
                     :
