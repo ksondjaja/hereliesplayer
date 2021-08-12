@@ -103,7 +103,7 @@ export default function ChapterOne(props){
     const pages = [
         //p0
         <>
-            Chapter One
+            <h1>Chapter One</h1>
         </>,
         //p1
         <>
@@ -138,8 +138,11 @@ export default function ChapterOne(props){
                     This is fun, but you know that it won’t last. You tell {setPronoun(2)} that you just want to keep it casual.
                 </li>
                 <li onClick={optionThree}>
-                    {capitalize(setPronoun(1))} seem like a nice person, but you’re not really into {setPronoun(2)}. You tell {setPronoun(2)} that you don’t see {setPronoun(2)} that way.
+                    {capitalize(setPronoun(1))} seem{setPlural(setPronoun(1))} like a nice person, but you’re not really into {setPronoun(2)}. You tell {setPronoun(2)} that you don’t see {setPronoun(2)} that way.
                 </li>
+                <div class="tutorial">
+                    Select one of the options to proceed with story.
+                </div>
             </ul>
         </>,
         // p6: option 1
@@ -172,11 +175,11 @@ export default function ChapterOne(props){
         </>,
         //p11: option3
         <>
-        {capitalize(setPronoun(1))} seem really sad to let you go, but you feel that you made the right decision by being honest and not wasting {(setPronoun(3))} time.
+        {capitalize(setPronoun(1))} seem{setPlural(setPronoun(1))} really sad to let you go, but you feel that you made the right decision by being honest and not wasting {(setPronoun(3))} time.
         </>,
         //p12
         <>
-        {capitalize(setPronoun(1))} find it too painful to be just friends, and you never see {setPronoun(2)} again.
+        {capitalize(setPronoun(1))} find{setPlural(setPronoun(1))} it too painful to be just friends, and you never see {setPronoun(2)} again.
         </>,
         //p13
         <>
@@ -209,6 +212,12 @@ export default function ChapterOne(props){
                 </div>
 
                 {pages[pageNum]}
+
+                {pageNum===0?
+                    <div class="tutorial" id="tutorial">
+                        Click the arrow button to go to the next dialog.
+                    </div>
+                :<></>}
 
             </div>    
         </div>

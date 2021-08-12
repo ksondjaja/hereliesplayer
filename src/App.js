@@ -18,6 +18,7 @@ export class App extends React.Component {
     statusCharacter: null,
     statusRelationship: null,
     statusRelationshipNum: null,
+    statusBrokeUp: null,
     statusNotAttracted: null,
     // statusChildren: null,
     // statusChildrenNum: null,
@@ -210,6 +211,7 @@ export class App extends React.Component {
 
   leaveRelationship(){
     this.setState({ statusRelationship: false });
+    this.setState({ statusBrokeUp: true });
   }
 
   // disagreeChildren(){

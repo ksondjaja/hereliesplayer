@@ -19,14 +19,16 @@ export default function Profile(props){
                     <div class="popup-text">Please fill in all the fields as prompted to start the start game</div>
                 </div>
             </div>
-        
+            <br/>
+            <br/>
+            <br/>
             <p>
-                What is your name?<br/>
+                <b>What is your name?</b><br/>
                 <input id="player-name" type="text" onChange={handleChange('playerName')}/>
             </p>
             
             <p>
-                What are your pronouns?<br/>
+                <b>What are your pronouns?</b><br/>
                 <input
                 name="player-pronouns" id="player-pronouns-they" value="they" type="radio"
                 checked={state.playerPronouns === 'they'}
@@ -50,7 +52,7 @@ export default function Profile(props){
             </p>
 
             <p>
-                What pronouns do people you are attracted to use?<br/>
+                <b>What pronouns do people you are attracted to use?</b><br/>
                 <input
                 name="interest-pronouns" id="interest-pronouns-they" value="they" type="checkbox"
                 checked={state.interestPronouns.includes('they') === true}
@@ -106,7 +108,7 @@ export default function Profile(props){
             </p> */}
 
             <p>
-                Which of these best describe your personality?<br/>
+                <b>Which of these best describes your personality?</b><br/>
                 <input
                 name="player-personality" id="player-personality-sociable" value="sociable" type="radio"
                 checked={state.playerPersonality === 'sociable'}
@@ -165,7 +167,7 @@ export default function Profile(props){
             </p>
             
             <p>
-                What are your passions? (pick 3)<br/>
+                <b>What are your passions? (pick 3)</b><br/>
                 <input
                 name="player-passions" id="player-passions-travel" value="travel" type="checkbox"
                 checked={state.playerPassions.includes('travel') === true}
@@ -244,8 +246,8 @@ export default function Profile(props){
                 <label for="player-passions-spirituality">Spirituality</label>
                 
             </p>  
-
-            <button class="button-play" onClick={() => {startGame()}}>Start your dating life</button>
+            <br/>
+            <p><button class="button-play" onClick={() => {startGame()}}>Start your dating life</button></p>
 
         </div>
     );

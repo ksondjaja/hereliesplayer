@@ -22,7 +22,7 @@ export default function Death(props){
     const pages = [
         //p0
         <>
-            Death
+            <h1>Death</h1>
         </>,
         //p1
         <>

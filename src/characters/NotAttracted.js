@@ -60,7 +60,7 @@ export default function NotAttracted(props){
         </>,
         //p7
         <>
-            You don't enjoy spending time with your partner anymore, and feel isolated.
+            You don't enjoy spending time with your partner as much anymore, and secretly feel isolated in the relationship.
         </>,
         //p8: option 2
         <>
@@ -68,7 +68,7 @@ export default function NotAttracted(props){
         </>,
         //p9
         <>
-            Although at first {props.setPronoun(1, partner)} feel hurt, you both move on and stay as close friends.
+            Although at first {props.setPronoun(1, partner)} feel{props.setPlural(props.setPronoun(1, partner))} hurt, you both move on and stay as close friends.
         </>,
         //p10
         <>

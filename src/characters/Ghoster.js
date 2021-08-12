@@ -36,7 +36,7 @@ export default function Ghoster(props){
         </>,
         //p3
         <>
-            After several years, your partner suddenly found an opportunity in a different city.
+            After several years, your partner suddenly finds an opportunity in a different city.
         </>,
         //p4
         <>
@@ -48,7 +48,7 @@ export default function Ghoster(props){
         </>,
         //p6
         <>
-            After your partner moves, all of a sudden {props.setPronoun(1, partner)} stop replying to your texts.
+            After your partner moves, all of a sudden {props.setPronoun(1, partner)} stop{props.setPlural(props.setPronoun(1, partner))} replying to your texts.
         </>,
         //p7
         <>
@@ -64,11 +64,11 @@ export default function Ghoster(props){
         </>,
         //p10
         <>
-            You ask a friend to reach out to your partner on social media. Your friend finds out from {props.setPronoun(3, partner)} profile that {props.setPronoun(1, partner)} have started a relationship with someone else.
+            You ask a friend to reach out to your partner on social media. Your friend finds out from {props.setPronoun(3, partner)} profile that {props.setPronoun(1, partner)} {props.setPluralHave(props.setPronoun(1, partner))} started a relationship with someone else.
         </>,
         //p11
         <>
-            You are devastated. You cannot believe that {props.setPronoun(1, partner)} would betray you like this, and without giving you any explanations.
+            You are devastated. You cannot believe that {props.setPronoun(1, partner)} would betray you like this, and without giving you any explanation.
         </>,
         //p12
         <>

@@ -114,7 +114,7 @@ export default function ChapterThree(props){
     const pages = [
         //p0
         <>
-            Chapter Three
+            <h1>Chapter Three</h1>
         </>,
         //p1
         <>

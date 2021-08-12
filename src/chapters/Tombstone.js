@@ -1,4 +1,5 @@
 import React from 'react';
+import tombstone from '../tombstone.png';
 
 export default function Tombstone(props){
     const pronoun = props.state.playerPronouns;
@@ -29,13 +30,14 @@ export default function Tombstone(props){
 
     return(
         <div class="center">
-            <div class="tombstone">
+            <img class="tombstone-image" src={tombstone}/>
+            <div class="tombstone-end">
                 <h1>Here lies {props.state.playerName}</h1><br/>
                 <h2>
                     {props.state.statusRelationship?<>
                     a&nbsp;
-                        {props.state.statusRelationshipNum===1?'loyal ':<></>}
-                    partner,&nbsp;
+                        {!props.state.statusBrokeUp?<>loyal&nbsp;</>:<></>}
+                    partner,<br/>
                     </>
                     :<></>}
 
@@ -62,28 +64,32 @@ export default function Tombstone(props){
                         <>was a selfish coward,<br/></>
                     :<></>}
 
+                    and died&nbsp;
+
                     {props.state.statusHappy==='yes'?
-                        <>and died happy.</>
+                        <>happy</>
                     :<></>}
 
                     {props.state.statusHappy==='no'?
-                        <>and died with regrets.</>
+                        <>with regrets</>
                     :<></>}
 
                     {props.state.statusKilled?
-                        <>and died tragically.</>
+                        <>tragically</>
                     :<></>}
+
+                    {!props.state.statusRelationship?' and alone':<></>}
+
+                    .
 
                 </h2>
             </div>
-            <p>
+            <div class="notes">
                 {props.state.statusHappy==='no'?
-                    <>Fortunately, real life gives you many more chances and options. Hopefully you can make the best of them.</>
+                    <><br/>Fortunately, real life gives you many more chances and options. Hopefully you can make the best of them.<br/><br/></>
                 :<></>}
-            </p>
-            <p>
                 <button class="button-play" onClick={() => {window.location.reload();}}>Live Another Life</button>
-            </p>
+            </div>
         </div>
     );
 };

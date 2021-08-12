@@ -114,7 +114,7 @@ export default function ChapterTwo(props){
     const pages = [
         //p0
         <>
-            Chapter Two
+            <h1>Chapter Two</h1>
         </>,
         //p1
         <>
@@ -144,12 +144,12 @@ export default function ChapterTwo(props){
 
             {props.state.playerPassions[1]==="travel"?
             <>
-                while flying out on vacation&nbsp;
+                while flying out on vacation,&nbsp;
             </>
             :
             <>  {props.state.playerPassions[1]==="nature"?
                 <>
-                    while camping on the weekend&nbsp;
+                    while camping during the weekend,&nbsp;
                 </>
                 :
                 <>
@@ -162,7 +162,7 @@ export default function ChapterTwo(props){
         </>,
         //p3
         <>
-            It turns out that the two of you have so much in common that you ended up talking to {setPronoun(2)} without realizing that many hours have passed.
+            It turns out that the two of you have so much in common that you end up talking to {setPronoun(2)} without realizing that many hours have passed.
         </>,
         //p4
         <>
