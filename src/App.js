@@ -22,8 +22,8 @@ export class App extends React.Component {
     // statusChildren: null,
     // statusChildrenNum: null,
     statusCheated: null,
-    statusPersonality: null,
-    statusGaveUp: null,
+    statusGaveUpPersonality: null,
+    statusGaveUpPassion: null,
     statusKilled: null,
     statusHappy: null
   };
@@ -151,12 +151,12 @@ export class App extends React.Component {
     passions[0] = allFields[p];
 
     this.setState({ playerPassions: passions });
-    this.setState({ statusGaveUp: true });
+    this.setState({ statusGaveUpPassion: true });
 
   }
 
   suppressPersonality(){
-    this.setState({ statusGaveUp: true });
+    this.setState({ statusGaveUpPersonality: true });
   }
 
   leaveNotAttracted(){
@@ -165,6 +165,11 @@ export class App extends React.Component {
 
   getsKilled(){
     this.setState({ statusKilled: true });
+    this.setState({ statusRelationship: false });
+  }
+
+  setHappiness(status){
+    this.setState({ statusHappy: status});
   }
 
   startGame(){
@@ -246,6 +251,8 @@ export class App extends React.Component {
         giveUpPassion = {this.giveUpPassion.bind(this)}
         suppressPersonality = {this.suppressPersonality.bind(this)}
         getsKilled = {this.getsKilled.bind(this)}
+        setHappiness = {this.setHappiness.bind(this)}
+        leaveNotAttracted = {this.leaveNotAttracted.bind(this)}
       />
     );
   }

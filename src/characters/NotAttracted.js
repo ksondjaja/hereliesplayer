@@ -11,7 +11,6 @@ export default function NotAttracted(props){
     const partner = interests[props.state.chapter];
 
     const subOptionOne = () => {
-        props.suppressPersonality();
         setSubPage(subPageNum+1);
     }
 
@@ -47,10 +46,10 @@ export default function NotAttracted(props){
         //p5
         <>
             <ul class="options">
-                <li>
+                <li onClick={subOptionOne}>
                     You believe that {props.setPronoun(1, partner)} {props.setPluralAre(props.setPronoun(1, partner))} the best partner you could hope for, so you force yourself to show {props.setPronoun(2, partner)} more affection so that you can stay together.
                 </li>
-                <li>
+                <li onClick={subOptionTwo}>
                     You feel bad about lying to your partner about your feelings. You decide to break up with {props.setPronoun(2, partner)} because both of you deserve better.
                 </li>
             </ul>

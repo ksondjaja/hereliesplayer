@@ -7,6 +7,7 @@ import ChapterTwo from './ChapterTwo';
 // import ChapterChildren from './ChapterChildren';
 import ChapterThree from './ChapterThree';
 import Death from './Death';
+import Tombstone from './Tombstone';
 
 export default function Chapters(props){
     switch(props.state.chapter){
@@ -37,6 +38,10 @@ export default function Chapters(props){
         case "death":
             return(
                 <Death {...props}/>
+            );
+        case "tombstone":
+            return(
+                <Tombstone {...props}/>
             );
     }
 }

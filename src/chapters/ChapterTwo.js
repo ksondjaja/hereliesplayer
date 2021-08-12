@@ -11,7 +11,7 @@ export default function ChapterTwo(props){
     const jobs = {"travel" : "in tourism", "food":"as a chef", "books": "as a writer", "nature":"as a botanist", "spirituality":"as a healer"};
     const interest = props.state.gameInterests[1];
 
-    console.log(interest);
+    // console.log(interest);
 
     const setPronoun = (type, person=interest) => {
         if(person === "they"){
@@ -31,8 +31,10 @@ export default function ChapterTwo(props){
         }else{
             if(type===1){
                 return "he";
-            }else{
+            }else if(type===2){
                 return "him";
+            }else{
+                return "his";
             }
         }
     }
@@ -105,9 +107,9 @@ export default function ChapterTwo(props){
         setPage(pageNum+8);
     }
 
-    const images = [
-        <></>, <></>, <></>, <></>
-    ];
+    // const images = [
+    //     <></>, <></>, <></>, <></>
+    // ];
 
     const pages = [
         //p0
@@ -277,9 +279,9 @@ export default function ChapterTwo(props){
 
     return(
         <div class="main">
-            <div class="image">
+            {/* <div class="image">
                 {images[pageNum]}
-            </div>
+            </div> */}
 
             <div class="dialog">
             <div class="dialog-next">

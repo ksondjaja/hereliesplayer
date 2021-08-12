@@ -10,7 +10,7 @@ export default function ChapterOne(props){
     const lastPage = [10,13]
     const interest = props.state.gameInterests[0];
 
-    console.log(interest);
+    // console.log(interest);
 
     const setPronoun = (type, person=interest) => {
         if(person === "they"){
@@ -30,8 +30,10 @@ export default function ChapterOne(props){
         }else{
             if(type===1){
                 return "he";
-            }else{
+            }else if(type===2){
                 return "him";
+            }else{
+                return "his";
             }
         }
     }
@@ -94,9 +96,9 @@ export default function ChapterOne(props){
         setPage(pageNum+6);
     }
 
-    const images = [
-        <>(image)</>, <>(image)</>, <>(image)</>, <>(image)</>, <>(image)</>
-    ];
+    // const images = [
+    //     <>(image)</>, <>(image)</>, <>(image)</>, <>(image)</>, <>(image)</>
+    // ];
 
     const pages = [
         //p0
@@ -184,9 +186,9 @@ export default function ChapterOne(props){
 
     return(
         <div class="main">
-            <div class="image">
+            {/* <div class="image">
                 {images[pageNum]}
-            </div>
+            </div> */}
 
             <div class="dialog">
                 <div class="dialog-next">

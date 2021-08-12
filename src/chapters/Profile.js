@@ -12,7 +12,7 @@ export default function Profile(props){
         } = props;
 
     return(
-        <div class="main">
+        <div class="center">
             <div class="popup-background">
                 <div class="popup">
                     <button class="button-play" id="popup-close" onClick={hidePopup}>X</button>

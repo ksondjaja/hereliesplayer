@@ -36,7 +36,7 @@ export default function Ghoster(props){
         </>,
         //p3
         <>
-            After several years, your partner suddenly found a career opportunity in a different city.
+            After several years, your partner suddenly found an opportunity in a different city.
         </>,
         //p4
         <>
@@ -44,7 +44,7 @@ export default function Ghoster(props){
         </>,
         //p5
         <>
-            You support {props.setPronoun(2, partner)}, so you let your partner go ahead and move to a new city. You plan to follow {props.setPronoun(2, partner)} in a few months after you also secure a job in this new city.
+            You support {props.setPronoun(2, partner)}, so you let your partner go ahead and move to the new city first. You plan to arrange moving the rest of your things and follow {props.setPronoun(2, partner)} in a few months.
         </>,
         //p6
         <>

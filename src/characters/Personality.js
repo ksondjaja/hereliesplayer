@@ -33,7 +33,7 @@ export default function Personality(props){
         </>,
         //p2
         <>
-            Your partner always criticizes you when you should be better...
+            Your partner always criticizes you when {props.setPronoun(1, partner)} think{props.setPlural(props.setPronoun(1, partner))} that you should be better...
         </>,
         //p3
         <>
@@ -41,7 +41,7 @@ export default function Personality(props){
         </>,
         //p4
         <>
-            {props.capitalize(props.setPronoun(1, partner))} tell{props.setPlural(props.setPronoun(1, partner))} you that you are too {props.state.playerPersonality}, and you should change for {props.setPronoun(2, partner)}. {props.capitalize(props.setPronoun(1, partner))} say{props.setPlural(props.setPronoun(1, partner))} that they are embarrassed to be seen with you when you when you act like you usually do at home.
+            {props.capitalize(props.setPronoun(1, partner))} tell{props.setPlural(props.setPronoun(1, partner))} you that you are too {props.state.playerPersonality}, and you should change for {props.setPronoun(2, partner)}. {props.capitalize(props.setPronoun(1, partner))} say{props.setPlural(props.setPronoun(1, partner))} that {props.setPronoun(1, partner)} {props.setPluralAre(props.setPronoun(1, partner))} embarrassed to be seen with you when you when you act like you usually do at home.
         </>,
         //p5
         <>

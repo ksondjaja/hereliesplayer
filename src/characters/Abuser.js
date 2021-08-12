@@ -11,7 +11,7 @@ export default function Abuser(props){
 
     const subOptionOne = () => {
         props.getsKilled();
-        props.flipChapter("death");
+        props.flipChapter("tombstone");
     }
 
     const subOptionTwo = () => {
@@ -36,7 +36,7 @@ export default function Abuser(props){
         </>,
         //p3
         <>
-            Together you go on romantic vacations. {props.capitalize(props.setPronoun(1, partner))} give you wonderful presents and surprises, even when there is no special occassion.
+            Together you go on romantic vacations. {props.capitalize(props.setPronoun(1, partner))} give{props.setPlural(props.setPronoun(1, partner))} you wonderful presents and surprises, even when there is no special occassion.
         </>,
         //p4
         <>

@@ -1,12 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
-.main{
+.center{
   height: 91.1vh;
   width: 95%;
   background-color: #000000;
   font-family: 'Roboto Mono', monospace;
   color: #d4d4d4;
   padding: 2.5%;
+  /* padding: 12.5%; */
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.main{
+  display: flex;
+  height: 91.1vh;
+  width: 95%;
+  background-color: #000000;
+  font-family: 'Roboto Mono', monospace;
+  color: #d4d4d4;
+  padding: 2.5%;
+  /* padding: 12.5%; */
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
 .popup-background{
@@ -47,13 +69,15 @@
 }
 
 .chapter{
-  display: inline-grid;
+  display: flex;
+  /* display: inline-grid; */
   height: 100%;
   width: 100%;
-  grid-template-rows: auto auto;
+  /* grid-template-rows: auto auto;
   row-gap: 5%;
-  grid-template-columns: 100%;
-  justify-items: center;
+  grid-template-columns: 100%; */
+  justify-content: center;
+  align-content: center;
 }
 
 .image{
@@ -67,19 +91,22 @@
 .dialog{
   display: block;
   position: relative;
-  height: 36%;
-  width: 95%;
+  /* height: 36%; */
+  /* width: 95%; */
+  height: 40%;
+  width: 75%;
   border: 2px solid #FFFFFF;
   font-family: 'Roboto Mono', monospace;
   font-size: 18px;
-  padding: 20px;
+  padding: 25px;
   z-index: 20;
 }
 
 .dialog-next{
   display: block;
   position: absolute;
-  transform: translate(89vw, 30vh);
+  /* transform: translate(89vw, 30vh); */
+  transform: translate(69vw, 31vh);
   z-index: 10;
 }
 

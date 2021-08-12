@@ -11,15 +11,15 @@ export default function ChapterThree(props){
     const jobs = {"travel" : "in tourism", "food":"as a chef", "books": "as a writer", "nature":"as a botanist", "spirituality":"as a healer"};
     const interest = props.state.gameInterests[2];
 
-    console.log(interest);
+    // console.log(interest);
 
-    const setPluralChildren = (num) => {
-        if(num===1){
-            return "child";
-        }else{
-            return "children";
-        }
-    }
+    // const setPluralChildren = (num) => {
+    //     if(num===1){
+    //         return "child";
+    //     }else{
+    //         return "children";
+    //     }
+    // }
 
     const setPronoun = (type, person=interest) => {
         if(person === "they"){
@@ -39,8 +39,10 @@ export default function ChapterThree(props){
         }else{
             if(type===1){
                 return "he";
-            }else{
+            }else if(type===2){
                 return "him";
+            }else{
+                return "his";
             }
         }
     }
@@ -105,9 +107,9 @@ export default function ChapterThree(props){
         setPage(pageNum+6);
     }
 
-    const images = [
-        <></>, <></>, <></>, <></>
-    ];
+    // const images = [
+    //     <></>, <></>, <></>, <></>
+    // ];
 
     const pages = [
         //p0
@@ -138,7 +140,7 @@ export default function ChapterThree(props){
         </>,
         //p2
         <>
-            One day, a new neighbor moved in next door. {capitalize(setPronoun(1))} live{setPlural(setPronoun(1))} alone, and you often see {setPronoun(2)} spending time at the porch.
+            One day, a new neighbor moves in next door. {capitalize(setPronoun(1))} live{setPlural(setPronoun(1))} alone, and you often see {setPronoun(2)} spending time at the porch.
         </>,
         //p3
         <>
@@ -205,15 +207,15 @@ export default function ChapterThree(props){
         </>,
         //p8: option 2
         <>
-            {props.state.statusChildren?
+            {/* {props.state.statusChildren?
                 <>
                     Even though your {setPluralChildren(props.state.statusChildrenNumber)} no longer lives near you,&nbsp;
                 </>
             :
-                <>
+                <> */}
                     Even though you no longer have many friends and acquintances living near you,&nbsp;
-                </>
-            }
+                {/* </>
+            } */}
             you seldom feel lonely because you have your good friend keeping you company.
         </>,
         //p9
@@ -238,7 +240,7 @@ export default function ChapterThree(props){
         </>,
         // p14
         <>
-            Your partner believes that they deserve better than be with a toxic person, and decide to leave you.
+            Your partner believes that they deserve better than be with a toxic person, and decides to leave you.
         </>,
         // p15
         <>
@@ -260,9 +262,9 @@ export default function ChapterThree(props){
 
     return(
         <div class="main">
-            <div class="image">
+            {/* <div class="image">
                 {images[pageNum]}
-            </div>
+            </div> */}
 
             <div class="dialog">
                 <div class="dialog-next">
