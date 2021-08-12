@@ -86,9 +86,9 @@ export default function Tombstone(props){
             </div>
             <div class="notes">
                 {props.state.statusHappy==='no'?
-                    <><br/>Fortunately, real life gives you many more chances and options. Hopefully you can make the best of them.<br/><br/></>
+                    <><br/>Fortunately, real life gives you many more chances and options. Hopefully you can make the best of them.<br/></>
                 :<></>}
-                <button class="button-play" onClick={() => {window.location.reload();}}>Live Another Life</button>
+                <br/><button class="button-play" onClick={() => {window.location.reload();}}>Live Another Life</button>
             </div>
         </div>
     );

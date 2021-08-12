@@ -77,7 +77,7 @@ export default function Passion(props){
         </>,
         //p6: option 1
         <>
-            You agree to give up on the {props.state.playerPassions[0]==="social justice"?"non-profit": props.state.playerPassions[0]+" business"} and find a more financially secure job.
+            You agree to give up on the {props.state.playerPassions[0]==="social justice"?"non-profit": props.state.playerPassions[0]+" business"} and find a more financially secure job to recover your losses.
         </>,
         //p7
         <>
