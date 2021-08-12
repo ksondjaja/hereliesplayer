@@ -6,15 +6,15 @@ import Characters from '../characters/Characters';
 export default function ChapterTwo(props){
 
     const [pageNum, setPage] = useState(0);
-    const noNextButton = [5,6,12,13];
+    const noNextButton = [5,7,12,18];
     const lastPage = [12]
     const jobs = {"travel" : "in tourism", "food":"as a chef", "books": "as a writer", "nature":"as a botanist", "spirituality":"as a healer"};
     const interest = props.state.gameInterests[1];
 
     console.log(interest);
 
-    const setPronoun = (type) => {
-        if(interest === "they"){
+    const setPronoun = (type, person=interest) => {
+        if(person === "they"){
             if(type===1){
                 return "they";
             }else if(type===2){
@@ -22,7 +22,7 @@ export default function ChapterTwo(props){
             }else{
                 return "their";
             }
-        }else if(interest === "she"){
+        }else if(person === "she"){
             if(type===1){
                 return "she";
             }else{
@@ -50,6 +50,22 @@ export default function ChapterTwo(props){
             return 'have';
         }else{
             return 'has';
+        }
+    }
+
+    const setPluralDo = (type) =>{
+        if(type==='they'){
+            return 'do';
+        }else{
+            return 'does';
+        }
+    }
+
+    const setPluralAre = (type) =>{
+        if(type==='they'){
+            return 'are';
+        }else{
+            return 'is';
         }
     }
 
@@ -200,6 +216,8 @@ export default function ChapterTwo(props){
             setPronoun = {setPronoun}
             setPlural = {setPlural}
             setPluralHave = {setPluralHave}
+            setPluralDo = {setPluralDo}
+            setPluralAre = {setPluralAre}
             capitalize = {capitalize}
             />
         </>,
@@ -225,14 +243,36 @@ export default function ChapterTwo(props){
         </>,
         //p13: option 3
         <>
+            You begin secretly having an affair with your new friend. {capitalize(setPronoun(1))} make{setPlural(setPronoun(1))} you feel like a new person, and your life is exciting again.
+        </>,
+        //p14
+        <>
+            One day, you come home late and find your partner waiting for you.
+        </>,
+        //p15
+        <>
+            Your partner has found out about the affair after reading your phone notification, and angrily confronts you about it.
+        </>,
+        //p16
+        <>
+            You have a big fight. Your partner decides to take everything and leave.
+        </>,
+        //p17
+        <>
+            You are devastated. But you hope that your new love will replace what you have just lost.
+        </>,
+        //p18
+        <>
             <Characters
             {...props}
             setPronoun = {setPronoun}
             setPlural = {setPlural}
             setPluralHave = {setPluralHave}
+            setPluralDo = {setPluralDo}
+            setPluralAre = {setPluralAre}
             capitalize = {capitalize}
             />
-        </>,
+        </>
     ];
 
     return(
@@ -251,15 +291,17 @@ export default function ChapterTwo(props){
                     <></>
                     }
 
-                    {lastPage.includes(pageNum) && !props.state.statusRelationship && props.state.playerChildren==="yes" && props.state.playerChildrenNum===0 ?
+                    {/* {lastPage.includes(pageNum) && !props.state.statusRelationship && props.state.playerChildren==="yes" && props.state.playerChildrenNum===0 ?
                         <button onClick={() => {props.haveChildren(); props.flipChapter("chapter2.5")}} class="button-next">
                             <FontAwesomeIcon icon={ faAngleRight } size="2x"/>
                         </button>
                     :
                     <></>
-                    }
+                    } */}
 
-                    {lastPage.includes(pageNum) && !(props.state.playerChildren==="yes")?
+                    {lastPage.includes(pageNum)
+                    // && !(props.state.playerChildren==="yes")
+                    ?
                         <button onClick={() => {props.flipChapter("chapter3")}} class="button-next">
                             <FontAwesomeIcon icon={ faAngleRight } size="2x"/>
                         </button>

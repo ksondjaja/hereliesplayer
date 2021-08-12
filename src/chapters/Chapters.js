@@ -4,7 +4,7 @@ import Title from './Title';
 import Profile from './Profile';
 import ChapterOne from './ChapterOne';
 import ChapterTwo from './ChapterTwo';
-import ChapterChildren from './ChapterChildren';
+// import ChapterChildren from './ChapterChildren';
 import ChapterThree from './ChapterThree';
 import Death from './Death';
 
@@ -26,10 +26,10 @@ export default function Chapters(props){
             return(
                 <ChapterTwo {...props}/>
             );
-        case "chapter2.5":
-            return(
-                <ChapterChildren {...props}/>
-            )
+        // case "chapter2.5":
+        //     return(
+        //         <ChapterChildren {...props}/>
+        //     )
         case "chapter3":
             return(
                 <ChapterThree {...props}/>

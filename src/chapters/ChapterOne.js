@@ -12,8 +12,8 @@ export default function ChapterOne(props){
 
     console.log(interest);
 
-    const setPronoun = (type) => {
-        if(interest === "they"){
+    const setPronoun = (type, person=interest) => {
+        if(person === "they"){
             if(type===1){
                 return "they";
             }else if(type===2){
@@ -21,7 +21,7 @@ export default function ChapterOne(props){
             }else{
                 return "their";
             }
-        }else if(interest === "she"){
+        }else if(person === "she"){
             if(type===1){
                 return "she";
             }else{
@@ -49,6 +49,22 @@ export default function ChapterOne(props){
             return 'have';
         }else{
             return 'has';
+        }
+    }
+
+    const setPluralDo = (type) =>{
+        if(type==='they'){
+            return 'do';
+        }else{
+            return 'does';
+        }
+    }
+
+    const setPluralAre = (type) =>{
+        if(type==='they'){
+            return 'are';
+        }else{
+            return 'is';
         }
     }
 
@@ -114,7 +130,7 @@ export default function ChapterOne(props){
                     :
                     <></>
                     }
-                    You ask {setPronoun(2)} if {setPronoun(1)} want to date seriously.
+                    You ask {setPronoun(2)} if {setPronoun(1)} want{setPlural(setPronoun(1))} to date seriously.
                 </li>
                 <li onClick={optionTwo}>
                     This is fun, but you know that it won’t last. You tell {setPronoun(2)} that you just want to keep it casual.
@@ -135,6 +151,8 @@ export default function ChapterOne(props){
             setPronoun = {setPronoun}
             setPlural = {setPlural}
             setPluralHave = {setPluralHave}
+            setPluralDo = {setPluralDo}
+            setPluralAre = {setPluralAre}
             capitalize = {capitalize}
             />
         </>,

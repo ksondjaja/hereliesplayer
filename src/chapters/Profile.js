@@ -80,7 +80,7 @@ export default function Profile(props){
                 <label for="interest-pronouns-none">Actually, I do not feel attracted to anyone</label>
             </p>
             
-            <p>
+            {/* <p>
                 Do you want children?
                 <input
                 name="player-children" id="player-children-yes" value="yes" type="radio"
@@ -103,7 +103,7 @@ export default function Profile(props){
                 />
                 <label for="player-children-no">No</label>
 
-            </p>
+            </p> */}
 
             <p>
                 Which of these best describe your personality?<br/>

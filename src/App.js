@@ -8,19 +8,19 @@ export class App extends React.Component {
     chapter: 'title',
     playerName: null,
     playerPronouns: null,
-    playerChildren: null,
+    // playerChildren: null,
     playerPersonality: null,
     playerPassions: [],
     interestPronouns: [],
-    statusChapterNum: null,
+    statusChapterNum: -1,
     gameInterests: [],
     gameCharacters: [],
     statusCharacter: null,
     statusRelationship: null,
     statusRelationshipNum: null,
     statusNotAttracted: null,
-    statusChildren: null,
-    statusChildrenNum: null,
+    // statusChildren: null,
+    // statusChildrenNum: null,
     statusCheated: null,
     statusPersonality: null,
     statusGaveUp: null,
@@ -29,6 +29,7 @@ export class App extends React.Component {
   };
 
   flipChapter(stage) {
+    this.setState({ statusChapterNum: this.state.statusChapterNum+1 })
     this.setState({ chapter: stage });
   };
 
@@ -103,16 +104,16 @@ export class App extends React.Component {
   }
 
   setGameCharacters(){
-    let characters = ["notAttracted", "ghoster", "abuser", "disagreeChildren", "disagreePassion", "disagreePersonality"];
+    let characters = ["notAttracted", "ghoster", "abuser", "disagreePassion", "disagreePersonality"];
     let gameChar = this.state.gameCharacters;
 
     if(this.state.interestPronouns.includes("none")){
       characters.splice(0,1);
     }
 
-    if(this.state.playerChildren === "open"){
-      characters.splice(3,1);
-    }
+    // if(this.state.playerChildren === "open"){
+    //   characters.splice(3,1);
+    // }
 
     for(let i=0; i<3; i++){
       let c = Math.floor(Math.random() * characters.length);
@@ -154,8 +155,20 @@ export class App extends React.Component {
 
   }
 
+  suppressPersonality(){
+    this.setState({ statusGaveUp: true });
+  }
+
+  leaveNotAttracted(){
+    this.setState({ statusNotAttracted: false });
+  }
+
+  getsKilled(){
+    this.setState({ statusKilled: true });
+  }
+
   startGame(){
-    let profile1 = [this.state.playerName, this.state.playerPronouns, this.state.playerChildren, this.state.playerPersonality];
+    let profile1 = [this.state.playerName, this.state.playerPronouns, this.state.playerPersonality];
     let profile2 = [this.state.playerPassions, this.state.interestPronouns];
 
     if(profile1.some((x) => x===null) || (profile2).some((x) => x.length===0) || this.state.playerName === "" || this.state.playerPassions.length < 3){
@@ -194,25 +207,25 @@ export class App extends React.Component {
     this.setState({ statusRelationship: false });
   }
 
-  disagreeChildren(){
-    let wantChildren = this.state.playerChildren;
-    let numChildren;
+  // disagreeChildren(){
+  //   let wantChildren = this.state.playerChildren;
+  //   let numChildren;
 
-    if(wantChildren==="no"){
-      numChildren = Math.floor(Math.random() * (4 - 1) + 1);
-      this.setState({statusChildren: true});
-    }else{
-      numChildren = 0;
-    }
+  //   if(wantChildren==="no"){
+  //     numChildren = Math.floor(Math.random() * (4 - 1) + 1);
+  //     this.setState({statusChildren: true});
+  //   }else{
+  //     numChildren = 0;
+  //   }
 
-    this.setState({statusChildrenNum: numChildren});
-  }
+  //   this.setState({statusChildrenNum: numChildren});
+  // }
 
-  haveChildren(){
-    let numChildren = Math.floor(Math.random() * (3 - 1) + 1);
-    this.setState({statusChildrenNum: numChildren});
-    this.setState({statusChildren: true});
-  }
+  // haveChildren(){
+  //   let numChildren = Math.floor(Math.random() * (3 - 1) + 1);
+  //   this.setState({statusChildrenNum: numChildren});
+  //   this.setState({statusChildren: true});
+  // }
 
   render(){
     return (
@@ -228,9 +241,11 @@ export class App extends React.Component {
         enterRelationship = {this.enterRelationship.bind(this)}
         cheatRelationship = {this.cheatRelationship.bind(this)}
         leaveRelationship = {this.leaveRelationship.bind(this)}
-        disagreeChildren = {this.disagreeChildren.bind(this)}
-        haveChildren = {this.haveChildren.bind(this)}
+        // disagreeChildren = {this.disagreeChildren.bind(this)}
+        // haveChildren = {this.haveChildren.bind(this)}
         giveUpPassion = {this.giveUpPassion.bind(this)}
+        suppressPersonality = {this.suppressPersonality.bind(this)}
+        getsKilled = {this.getsKilled.bind(this)}
       />
     );
   }

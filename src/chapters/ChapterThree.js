@@ -6,8 +6,8 @@ import Characters from '../characters/Characters';
 export default function ChapterThree(props){
 
     const [pageNum, setPage] = useState(0);
-    const noNextButton = [5,6,9,10];
-    const lastPage = [9]
+    const noNextButton = [5,7,10,16];
+    const lastPage = [10]
     const jobs = {"travel" : "in tourism", "food":"as a chef", "books": "as a writer", "nature":"as a botanist", "spirituality":"as a healer"};
     const interest = props.state.gameInterests[2];
 
@@ -21,8 +21,8 @@ export default function ChapterThree(props){
         }
     }
 
-    const setPronoun = (type) => {
-        if(interest === "they"){
+    const setPronoun = (type, person=interest) => {
+        if(person === "they"){
             if(type===1){
                 return "they";
             }else if(type===2){
@@ -30,7 +30,7 @@ export default function ChapterThree(props){
             }else{
                 return "their";
             }
-        }else if(interest === "she"){
+        }else if(person === "she"){
             if(type===1){
                 return "she";
             }else{
@@ -61,6 +61,22 @@ export default function ChapterThree(props){
         }
     }
 
+    const setPluralDo = (type) =>{
+        if(type==='they'){
+            return 'do';
+        }else{
+            return 'does';
+        }
+    }
+
+    const setPluralAre = (type) =>{
+        if(type==='they'){
+            return 'are';
+        }else{
+            return 'is';
+        }
+    }
+
     const capitalize = (word) => {
         return word.charAt(0).toUpperCase() + word.slice(1);
     }
@@ -80,13 +96,13 @@ export default function ChapterThree(props){
     }
 
     const optionTwo = () => {
-        setPage(pageNum+2);
+        setPage(pageNum+3);
     }
 
     const optionThree = () => {
         props.flipCharacter(props.state.gameCharacters[2]);
         props.cheatRelationship();
-        setPage(pageNum+7);
+        setPage(pageNum+6);
     }
 
     const images = [
@@ -152,7 +168,7 @@ export default function ChapterThree(props){
                     </>
                     }
 
-                    You decided to&nbsp;
+                    You decide to&nbsp;
 
                     {props.state.statusRelationship?
                     <>
@@ -173,15 +189,21 @@ export default function ChapterThree(props){
         </>,
         //p6: option 1
         <>
+            You choose to live your old days with your new life partner.
+        </>,
+        //p7
+        <>
             <Characters
             {...props}
             setPronoun = {setPronoun}
             setPlural = {setPlural}
             setPluralHave = {setPluralHave}
+            setPluralDo = {setPluralDo}
+            setPluralAre = {setPluralAre}
             capitalize = {capitalize}
             />
         </>,
-        //p7: option 2
+        //p8: option 2
         <>
             {props.state.statusChildren?
                 <>
@@ -194,21 +216,43 @@ export default function ChapterThree(props){
             }
             you seldom feel lonely because you have your good friend keeping you company.
         </>,
-        //p8
+        //p9
         <>
             {capitalize(setPronoun(1))} motivate{setPlural(setPronoun(1))} you to stay active and keep learning new things well into your 70s.
         </>,
-        //p9
+        //p10
         <>
             You feel alive and look forward to each new day.
         </>,
-        // p10: option 3
+        // p11: option 3
+        <>
+            You develop a romantic relationship with your new friend behind your partner's back. You feel like you are young again.
+        </>,
+        // p12
+        <>
+            One day, while on a date with your lover, you run into your partner.
+        </>,
+        // p13
+        <>
+            You try to lie about your affair, but your partner does not buy it. Your partner calls you selfish and shameless.
+        </>,
+        // p14
+        <>
+            Your partner believes that they deserve better than be with a toxic person, and decide to leave you.
+        </>,
+        // p15
+        <>
+            You continue dating your current lover.
+        </>,
+        // p16
         <>
             <Characters
             {...props}
             setPronoun = {setPronoun}
             setPlural = {setPlural}
             setPluralHave = {setPluralHave}
+            setPluralDo = {setPluralDo}
+            setPluralAre = {setPluralAre}
             capitalize = {capitalize}
             />
         </>

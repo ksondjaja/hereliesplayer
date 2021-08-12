@@ -8,14 +8,15 @@ export default function Passion(props){
     const noNextSubButton = [5, 8, 12];
     const jobs = {"travel" : "in tourism", "food":"as a chef", "books": "as a writer", "nature":"as a botanist", "spirituality":"as a healer"};
     const nextChapter = {"chapter1": "chapter2", "chapter2":"chapter3", "chapter3":"death"};
-    const interest = {"chapter1": props.state.gameInterests[0], "chapter2": props.state.gameInterests[1], "chapter3": props.state.gameInterests[2]}
-
+    const interests = {"chapter1": props.state.gameInterests[0], "chapter2": props.state.gameInterests[1], "chapter3": props.state.gameInterests[2]}
+    const partner = interests[props.state.chapter];
+    
     const subOptionOne = () => {
         setSubPage(subPageNum+1);
     }
 
     const subOptionTwo = () => {
-        props.leaveRelationship()
+        props.leaveRelationship();
         setSubPage(subPageNum+4);
     }
 
@@ -24,7 +25,7 @@ export default function Passion(props){
     const subPages = [
         //p0
         <>
-            You decide to take your&nbsp;
+            With your partner next to you, you decide to take your&nbsp;
 
             {props.state.chapter==="chapter2"?
             <>
@@ -61,7 +62,7 @@ export default function Passion(props){
         </>,
         //p4
         <>
-            Your partner tells you to entirely give up on the {props.state.playerPassions[0]==="social justice"?"non-profit": props.state.playerPassions[0]+" business"}, or {interest[props.state.chapter]} will leave you. 
+            Your partner tells you to entirely give up on the {props.state.playerPassions[0]==="social justice"?"non-profit": props.state.playerPassions[0]+" business"}, or {partner} will leave you. 
         </>,
         //p5
         <>
