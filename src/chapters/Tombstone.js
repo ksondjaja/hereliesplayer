@@ -66,22 +66,21 @@ export default function Tombstone(props){
 
                     and died&nbsp;
 
+                    {!props.state.statusRelationship?'alone ':<></>}
+
+                    {!props.state.statusRelationship && props.state.statusHappy==='yes'?'and ':<></>}
+
                     {props.state.statusHappy==='yes'?
-                        <>happy</>
+                        <>happy.</>
                     :<></>}
 
                     {props.state.statusHappy==='no'?
-                        <>with regrets</>
+                        <>with regrets.</>
                     :<></>}
 
                     {props.state.statusKilled?
-                        <>tragically</>
+                        <>tragically.</>
                     :<></>}
-
-                    {!props.state.statusRelationship?' and alone':<></>}
-
-                    .
-
                 </h2>
             </div>
             <div class="notes">
